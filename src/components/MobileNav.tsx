@@ -10,9 +10,11 @@ import { CircleUserRound, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { useAuth0 } from '@auth0/auth0-react';
 import MobileNavLinks from './MobileNavLinks';
+import { useLocation } from 'react-router-dom';
 
 const MobileNav = () => {
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const { pathname } = useLocation();
 
   return (
     <Sheet>
@@ -36,7 +38,13 @@ const MobileNav = () => {
             <MobileNavLinks />
           ) : (
             <Button
-              onClick={() => loginWithRedirect()}
+              onClick={() =>
+                loginWithRedirect({
+                  appState: {
+                    returnTo: pathname,
+                  },
+                })
+              }
               className=' flex-1 font-bold bg-orange-500'
             >
               Log In
