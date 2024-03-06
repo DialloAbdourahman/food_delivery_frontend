@@ -1,6 +1,6 @@
 import { Restaurant } from '@/types';
 import { useAuth0 } from '@auth0/auth0-react';
-import { isError, useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { toast } from 'sonner';
 
 const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
