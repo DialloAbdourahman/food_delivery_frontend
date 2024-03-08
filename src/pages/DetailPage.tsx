@@ -109,7 +109,7 @@ const DetailPage = () => {
     window.location.href = data.url;
   };
 
-  if (isLoading || !restaurant) {
+  if (isLoading || !restaurant || isCheckoutLoading) {
     return <span>Loading...</span>;
   }
 
